@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>八月柿 菜单</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FFF8F0;--cream2:#FFF2E4;--orange:#E8692A;--orange-light:#F5894A;
+  --orange-pale:#FDEADB;--orange-deep:#C4501A;--brown:#7A4520;
+  --text-main:#3D2010;--text-muted:#8B6044;--text-light:#B88A6A;
+  --tag-new-bg:#FFE4CC;--tag-new-text:#C4501A;
+  --tag-sold-bg:#E8E0D8;--tag-sold-text:#7A6050;
+  --border:rgba(122,69,32,0.12);
+}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--cream);color:var(--text-main);min-height:100vh;padding-bottom:3rem}
+header{background:var(--cream);padding:2.5rem 1.5rem 1rem;text-align:center}
+.logo-icon{font-size:2.8rem;line-height:1;margin-bottom:0.2rem}
+.brand-name{font-family:'Noto Serif SC',serif;font-size:2.1rem;font-weight:700;color:var(--orange-deep);letter-spacing:.15em}
+.brand-sub{font-size:.78rem;color:var(--text-muted);letter-spacing:.2em;font-weight:300}
+.divider{width:60px;height:2px;background:linear-gradient(90deg,transparent,var(--orange-light),transparent);margin:.8rem auto 0}
+.notice{margin:0 1.2rem .5rem;background:var(--orange-pale);border-radius:12px;padding:.7rem 1rem;font-size:.78rem;color:var(--brown);text-align:center;line-height:1.6}
+.cat-tabs{display:flex;gap:.5rem;padding:.8rem 1.2rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.cat-tabs::-webkit-scrollbar{display:none}
+.cat-btn{flex-shrink:0;padding:.42rem 1.1rem;border-radius:999px;border:1.5px solid var(--border);background:white;color:var(--text-muted);font-size:.82rem;font-family:'Noto Sans SC',sans-serif;cursor:pointer;transition:all .18s;white-space:nowrap}
+.cat-btn.active{background:var(--orange);border-color:var(--orange);color:white;font-weight:500}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.9rem;padding:.4rem 1.2rem 0}
+.card{background:white;border-radius:16px;border:1px solid var(--border);overflow:hidden;cursor:pointer;position:relative;transition:transform .15s}
+.card:active{transform:scale(0.97)}
+.card-img{width:100%;aspect-ratio:1/1;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:2.6rem;position:relative;overflow:hidden}
+.card-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.card-sold .card-img::after{content:'已售罄';position:absolute;inset:0;background:rgba(255,255,255,.72);display:flex;align-items:center;justify-content:center;font-size:.85rem;color:var(--tag-sold-text);font-weight:500;letter-spacing:.05em;z-index:2}
+.tag{position:absolute;top:7px;left:7px;font-size:.66rem;padding:2px 7px;border-radius:999px;font-weight:500;letter-spacing:.05em;z-index:1}
+.tag-new{background:var(--tag-new-bg);color:var(--tag-new-text)}
+.tag-sold{background:var(--tag-sold-bg);color:var(--tag-sold-text)}
+.multi-hint{position:absolute;bottom:6px;right:7px;background:rgba(0,0,0,.32);color:white;font-size:.6rem;padding:2px 6px;border-radius:999px;letter-spacing:.03em;z-index:1}
+.card-body{padding:.6rem .75rem .75rem}
+.card-name{font-family:'Noto Serif SC',serif;font-size:.88rem;font-weight:600;color:var(--text-main);line-height:1.4;margin-bottom:.18rem}
+.card-desc{font-size:.7rem;color:var(--text-light);line-height:1.4;margin-bottom:.4rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.card-price{font-size:.98rem;font-weight:500;color:var(--orange)}
+.card-price span{font-size:.7rem;color:var(--text-light);font-weight:400;margin-left:1px}
+.empty{grid-column:1/-1;text-align:center;padding:3rem 0;color:var(--text-light);font-size:.88rem}
+
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(40,15,5,.55);z-index:100;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .22s}
+.modal-overlay.open{opacity:1;pointer-events:auto}
+.modal-sheet{background:white;border-radius:22px 22px 0 0;width:100%;max-width:480px;max-height:88vh;overflow-y:auto;transform:translateY(60px);transition:transform .25s cubic-bezier(.32,.72,0,1);padding-bottom:2rem}
+.modal-overlay.open .modal-sheet{transform:translateY(0)}
+.carousel{position:relative;width:100%;aspect-ratio:1/1;background:var(--cream2);overflow:hidden}
+.carousel-track{display:flex;height:100%;transition:transform .3s cubic-bezier(.32,.72,0,1)}
+.carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;flex-shrink:0;overflow:hidden}
+.carousel-slide img{width:100%;height:100%;object-fit:cover}
+.carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.82);border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--orange-deep);z-index:2}
+.carousel-prev{left:8px}
+.carousel-next{right:8px}
+.carousel-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:5px}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.55);transition:background .2s}
+.dot.active{background:white}
+.modal-close{position:absolute;top:12px;right:14px;background:rgba(0,0,0,.18);border:none;border-radius:50%;width:28px;height:28px;color:white;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:3}
+.modal-body{padding:1.1rem 1.2rem .5rem}
+.modal-cat{font-size:.72rem;color:var(--text-light);letter-spacing:.08em;margin-bottom:.3rem}
+.modal-name{font-family:'Noto Serif SC',serif;font-size:1.35rem;font-weight:700;color:var(--text-main);margin-bottom:.35rem}
+.modal-desc{font-size:.82rem;color:var(--text-muted);line-height:1.7;margin-bottom:.8rem}
+.modal-price{font-size:1.3rem;font-weight:600;color:var(--orange)}
+.modal-price span{font-size:.78rem;color:var(--text-light);font-weight:400;margin-left:2px}
+.modal-tag{display:inline-block;margin-left:.5rem;font-size:.66rem;padding:2px 8px;border-radius:999px;vertical-align:middle;position:relative;top:-2px}
+
+footer{text-align:center;padding:2rem 1.5rem 0;font-size:.72rem;color:var(--text-light);line-height:1.9}
+footer a{color:var(--orange-light);text-decoration:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-icon">🍊</div>
+  <div class="brand-name">八月柿</div>
+  <div class="brand-sub">手作点心 · 新鲜现做</div>
+  <div class="divider"></div>
+</header>
+
+<div class="notice">
+  📦 每周五截单 · 周日取货<br>
+  微信下单请备注品名与数量
+</div>
+
+<div class="cat-tabs" id="cats"></div>
+<div class="grid" id="grid"></div>
+
+<footer>
+  以上价格单位为英镑 · 自提为主<br>
+  微信联系：<a href="#">你的微信号</a><br><br>
+  © 八月柿手作点心
+</footer>
+
+<!-- modal -->
+<div class="modal-overlay" id="overlay">
+  <div class="modal-sheet" id="sheet">
+    <div class="carousel" id="carousel">
+      <div class="carousel-track" id="track"></div>
+      <button class="carousel-prev" id="prev">‹</button>
+      <button class="carousel-next" id="nxt">›</button>
+      <div class="carousel-dots" id="dots"></div>
+      <button class="modal-close" id="closeBtn">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-cat" id="mCat"></div>
+      <div class="modal-name" id="mName"></div>
+      <div class="modal-desc" id="mDesc"></div>
+      <div class="modal-price" id="mPrice"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// 菜品数据 — 只需修改这里
+// tag: "new" 显示新品标签，"" 不显示
+// sold: true 显示售罄
+// images: 可以填 emoji 占位，或真实图片 URL
+//   例如: ["https://i.imgur.com/xxx.jpg", "https://i.imgur.com/yyy.jpg"]
+// ============================================================
+const items = [
+  {
+    id: 1,
+    name: "芋泥麻薯",
+    cat: "甜品",
+    price: 3.5,
+    desc: "紫芋内馅，外皮Q弹，一口软糯。每颗手工包制，馅料饱满不甜腻。",
+    tag: "new",
+    images: ["🟣", "🍡", "✨"]
+  },
+  {
+    id: 2,
+    name: "草莓大福",
+    cat: "甜品",
+    price: 3.8,
+    desc: "新鲜草莓包裹细腻豆沙，外皮软糯，季节限定。每周新鲜制作，数量有限。",
+    tag: "new",
+    images: ["🍓", "🌸", "🍡"]
+  },
+  {
+    id: 3,
+    name: "抹茶雪媚娘",
+    cat: "甜品",
+    price: 3.5,
+    desc: "浓郁抹茶奶油夹心，日式风味，入口即化。使用宇治抹茶粉，苦甜平衡。",
+    tag: "",
+    images: ["🍵", "🌿"]
+  },
+  {
+    id: 4,
+    name: "桂花糕",
+    cat: "甜品",
+    price: 2.8,
+    desc: "桂花香气馥郁，入口即化，传统米糕做法。",
+    tag: "",
+    images: ["🌼", "🍂", "🫖"]
+  },
+  {
+    id: 5,
+    name: "凉拌木耳",
+    cat: "冷菜",
+    price: 4.5,
+    desc: "手撕黑木耳，香醋蒜香，爽口开胃。木耳提前泡发8小时，口感脆嫩。",
+    tag: "",
+    images: ["🍄", "🥢"]
+  },
+  {
+    id: 6,
+    name: "口水鸡",
+    cat: "冷菜",
+    price: 6.5,
+    desc: "嫩滑鸡肉，红油麻酱，微辣过瘾。鸡肉低温慢煮保持嫩度，自调复合红油。",
+    tag: "new",
+    images: ["🍗", "🌶️", "🥢"]
+  },
+  {
+    id: 7,
+    name: "拍黄瓜",
+    cat: "冷菜",
+    price: 3.2,
+    desc: "清爽脆嫩，蒜香四溢，解腻首选。",
+    tag: "",
+    images: ["🥒", "🧄"]
+  },
+  {
+    id: 8,
+    name: "夫妻肺片",
+    cat: "冷菜",
+    price: 7.0,
+    desc: "牛肉牛杂，麻辣鲜香，经典川味。卤水香料配方独家调制。",
+    tag: "",
+    images: ["🥩", "🌶️", "🫙"]
+  },
+  {
+    id: 9,
+    name: "草莓礼盒",
+    cat: "果蔬",
+    price: 9.8,
+    desc: "精选英国本地草莓，新鲜采摘当日配送，饱满多汁，甜度极高。",
+    tag: "new",
+    images: ["🍓", "🎁", "✨"]
+  },
+  {
+    id: 10,
+    name: "香椿芽",
+    cat: "果蔬",
+    price: 5.5,
+    desc: "季节性香椿，炒蛋拌豆腐皆宜，香气独特。",
+    tag: "",
+    images: ["🌿", "🥚"]
+  },
+  {
+    id: 11,
+    name: "脆柿子",
+    cat: "果蔬",
+    price: 4.5,
+    desc: "本季新到，香甜脆口，限量供应。",
+    tag: "",
+    images: ["🍊", "🍂"]
+  },
+  {
+    id: 12,
+    name: "秋葵",
+    cat: "果蔬",
+    price: 3.8,
+    desc: "新鲜嫩秋葵，焯水凉拌最佳。",
+    tag: "",
+    sold: true,
+    images: ["🥬"]
+  },
+];
+// ============================================================
+
+const cats = ["全部", ...new Set(items.map(i => i.cat))];
+let current = "全部";
+let slideIdx = 0;
+let currentItem = null;
+
+const catsEl = document.getElementById("cats");
+const gridEl = document.getElementById("grid");
+const overlay = document.getElementById("overlay");
+const track = document.getElementById("track");
+const dotsEl = document.getElementById("dots");
+const prevBtn = document.getElementById("prev");
+const nxtBtn = document.getElementById("nxt");
+
+function renderGrid() {
+  const filtered = current === "全部" ? items : items.filter(i => i.cat === current);
+  if (filtered.length === 0) {
+    gridEl.innerHTML = `<div class="empty">该分类暂无菜品</div>`;
+    return;
+  }
+  gridEl.innerHTML = filtered.map(item => {
+    const firstImg = item.images[0];
+    const imgHtml = firstImg.startsWith('http')
+      ? `<img src="${firstImg}" alt="${item.name}">`
+      : firstImg;
+    return `
+      <div class="card${item.sold ? ' card-sold' : ''}" onclick="openModal(${item.id})">
+        <div class="card-img">
+          ${imgHtml}
+          ${item.sold ? '<span class="tag tag-sold">售罄</span>' : item.tag === 'new' ? '<span class="tag tag-new">新品</span>' : ''}
+          ${item.images.length > 1 && !item.sold ? `<span class="multi-hint">+${item.images.length} 图</span>` : ''}
+        </div>
+        <div class="card-body">
+          <div class="card-name">${item.name}</div>
+          <div class="card-desc">${item.desc}</div>
+          <div class="card-price">£${item.price.toFixed(2)}<span>/份</span></div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function goSlide(idx) {
+  const len = currentItem.images.length;
+  slideIdx = (idx + len) % len;
+  track.style.transform = `translateX(-${slideIdx * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === slideIdx));
+}
+
+window.openModal = function(id) {
+  currentItem = items.find(i => i.id === id);
+  slideIdx = 0;
+  const imgs = currentItem.images;
+
+  track.innerHTML = imgs.map(src =>
+    src.startsWith('http')
+      ? `<div class="carousel-slide"><img src="${src}" alt=""></div>`
+      : `<div class="carousel-slide">${src}</div>`
+  ).join('');
+
+  dotsEl.innerHTML = imgs.map((_, i) => `<div class="dot${i === 0 ? ' active' : ''}"></div>`).join('');
+  track.style.transform = 'translateX(0)';
+  prevBtn.style.display = imgs.length > 1 ? '' : 'none';
+  nxtBtn.style.display = imgs.length > 1 ? '' : 'none';
+
+  document.getElementById('mCat').textContent = currentItem.cat;
+  document.getElementById('mName').innerHTML = currentItem.name +
+    (currentItem.tag === 'new' ? '<span class="modal-tag tag-new">新品</span>' : '') +
+    (currentItem.sold ? '<span class="modal-tag tag-sold">已售罄</span>' : '');
+  document.getElementById('mDesc').textContent = currentItem.desc;
+  document.getElementById('mPrice').innerHTML = `£${currentItem.price.toFixed(2)}<span>/份</span>`;
+
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+};
+
+prevBtn.onclick = e => { e.stopPropagation(); goSlide(slideIdx - 1); };
+nxtBtn.onclick = e => { e.stopPropagation(); goSlide(slideIdx + 1); };
+document.getElementById('closeBtn').onclick = closeModal;
+overlay.onclick = e => { if (e.target === overlay) closeModal(); };
+
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+let tx = 0;
+track.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+track.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 40) goSlide(dx < 0 ? slideIdx + 1 : slideIdx - 1);
+}, { passive: true });
+
+cats.forEach(cat => {
+  const btn = document.createElement('button');
+  btn.className = 'cat-btn' + (cat === current ? ' active' : '');
+  btn.textContent = cat;
+  btn.onclick = () => {
+    current = cat;
+    document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderGrid();
+  };
+  catsEl.appendChild(btn);
+});
+
+renderGrid();
+</script>
+</body>
+</html>
