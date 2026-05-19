@@ -326,7 +326,7 @@ const items = [
  {
     id:12, name:"鲜花酥", cat:"甜品",
     variants:[
-      {label:"一份 6个", price:9.0}，
+      {label:"一份 6个", price:9.0},
     ],
     desc:"酥脆好吃。",
     tag:"", images:[
@@ -420,7 +420,7 @@ window.openModal=function(id){
   const variantsRow=document.getElementById('variantsRow');
   const variantsLabel=document.getElementById('variantsLabel');
 
-  if(currentItem.variants.length>1){
+  if(currentItem.variants.length>=1){
     variantsLabel.textContent='选择规格';
     variantsRow.innerHTML=currentItem.variants.map((v,i)=>`
       <button class="variant-btn${i===0?' active':''}" onclick="selectVariant(${i})">
