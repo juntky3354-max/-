@@ -51,7 +51,8 @@ header{background:var(--cream);padding:2.5rem 1.5rem 1rem;text-align:center}
 .modal-overlay.open .modal-sheet{transform:translateY(0)}
 .carousel{position:relative;width:100%;aspect-ratio:1/1;background:var(--cream2);overflow:hidden}
 .carousel-track{display:flex;height:100%;transition:transform .3s cubic-bezier(.32,.72,0,1)}
-.carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;flex-shrink:0;overflow:hidden}
+.carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;flex-shrink:0;overflow:hidden:hidden;position:relative;}
+.slide-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.35);color:white;font-size:.72rem;text-align:center;padding:.3rem .5rem;letter-spacing:.05em;}
 .carousel-slide img{width:100%;height:100%;object-fit:cover}
 .carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.82);border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--orange-deep);z-index:2}
 .carousel-prev{left:8px}.carousel-next{right:8px}
@@ -136,7 +137,7 @@ const items = [
       {label:"十二件装", price:24}
     ],
     desc:"紫芋内馅，外皮Q弹，一口软糯。每颗手工包制，馅料饱满不甜腻。",
-    tag:"new", images:["🟣","🍡","✨"]
+    tag:"new", images:[{src: "🍓", caption: ""},]
   },
   {
     id:2, name:"玫瑰花茶", cat:"其他",
@@ -147,10 +148,10 @@ const items = [
     ],
     desc:"新鲜草莓包裹细腻豆沙，外皮软糯，季节限定。每周新鲜制作，数量有限。",
     tag:"new", images:[
-      {src: "bayueshi/huacha/mmexport1773176207002.jpg", caption: " "}，
-      {src: "bayueshi/huacha/mmexport1773178381813.jpg", caption: "小分"},
-      {src: "bayueshi/huacha/mmexport1773178378139.jpg", caption: "中分"}，
-      {src: "bayueshi/huacha/mmexport1773178375853.jpg", caption: "大分"}，
+      {src: "bayueshi/huacha/mmexport1773176207002.jpg",caption: " "}，
+      {src: "bayueshi/huacha/mmexport1773178381813.jpg",caption: "小分"},
+      {src: "bayueshi/huacha/mmexport1773178378139.jpg",caption: "中分"}，
+      {src: "bayueshi/huacha/mmexport1773178375853.jpg",caption: "大分"}，
     ]
   },
   {
@@ -159,7 +160,7 @@ const items = [
       {label:"单个", price:3.5}
     ],
     desc:"浓郁抹茶奶油夹心，日式风味，入口即化。使用宇治抹茶粉，苦甜平衡。",
-    tag:"", images:["🍵","🌿"]
+    tag:"", images:[{src: "🍓", caption: ""},]
   },
   {
     id:4, name:"手撕鸡", cat:"冷菜",
@@ -168,27 +169,34 @@ const items = [
       {label:"小分 200g", price:5.0}
     ],
     desc:"香辣爽口，开胃小凉菜。",
-    tag:"", images: ["bayueshi/mmexport1770673475591.jpg"]
+    tag:"", images: [{src: "bayueshi/mmexport1770673475591.jpg", caption: ""}]
   },
   {
     id:5, name:"萝卜丝饼", cat:"冷菜",
     variants:[
       {label:"一份 5个", price:5.0}],
     desc:"手撕黑木耳，香醋蒜香，爽口开胃。木耳提前泡发8小时，口感脆嫩。",
-    tag:"", images:["bayueshi/lbsbing/mmexport1770673475591.jpg","bayueshi/lbsbing/mmexport1770673481528.jpg"]
+    tag:"", images:[
+            {src:"bayueshi/lbsbing/mmexport1770673475591.jpg", caption: ""},
+            {src:"bayueshi/lbsbing/mmexport1770673481528.jpg", caption: ""},
+             ]
   },
   {
     id:6, name:"绿豆芽", cat:"果蔬",
     variants:[
       {label:"200g", price:2.0}],
     desc:"嫩滑鸡肉，红油麻酱，微辣过瘾。鸡肉低温慢煮保持嫩度，自调复合红油。",
-    tag:"new", images:["bayueshi/lvdouya/mmexport1770755341195.jpg","bayueshi/lvdouya/mmexport1770755335818.jpg"]
+    tag:"new", images:[
+                  {src:"bayueshi/lvdouya/mmexport1770755341195.jpg", caption:""},
+                  {src:"bayueshi/lvdouya/mmexport1770755335818.jpg", caption:""},
+    ]
   },
   {
     id:7, name:"豌豆苗", cat:"果蔬",
     variants:[{label:"100g", price:2.0}],
     desc:"清爽脆嫩，蒜香四溢，解腻首选。",
-    tag:"", images:["bayueshi/wdmiao/mmexport1770754797133.jpg","bayueshi/wdmiao/mmexport1770754798612.jpg"]
+    tag:"", images:[
+      {src: "bayueshi/wdmiao/mmexport1770754797133.jpg","bayueshi/wdmiao/mmexport1770754798612.jpg"]
   },
   {
     id:8, name:"夫妻肺片", cat:"冷菜",
@@ -197,7 +205,7 @@ const items = [
       {label:"大份", price:10.0}
     ],
     desc:"牛肉牛杂，麻辣鲜香，经典川味。卤水香料配方独家调制。",
-    tag:"", images:["🥩","🌶️","🫙"]
+    tag:"", images:[{src: "🍓", caption: ""},]
   },
   {
     id:9, name:"草莓礼盒", cat:"果蔬",
@@ -207,13 +215,13 @@ const items = [
       {label:"礼盒装 1kg", price:14.0}
     ],
     desc:"精选英国本地草莓，新鲜采摘当日配送，饱满多汁，甜度极高。",
-    tag:"new", images:["🍓","🎁","✨"]
+    tag:"new", images:[{src: "🍓", caption: ""},]
   },
   {
     id:10, name:"香椿芽", cat:"果蔬",
     variants:[{label:"一把", price:5.5}],
     desc:"季节性香椿，炒蛋拌豆腐皆宜，香气独特。",
-    tag:"", images:["🌿","🥚"]
+    tag:"", images:[{src: "🍓", caption: ""},]
   },
   {
     id:11, name:"脆柿子", cat:"果蔬",
@@ -222,13 +230,13 @@ const items = [
       {label:"四个", price:5.5}
     ],
     desc:"本季新到，香甜脆口，限量供应。",
-    tag:"", images:["🍊","🍂"]
+    tag:"", images:[{src: "🍓", caption: ""},]
   },
   {
     id:12, name:"秋葵", cat:"果蔬",
     variants:[{label:"一份", price:3.8}],
     desc:"新鲜嫩秋葵，焯水凉拌最佳。",
-    tag:"", images:["🥬"]
+    tag:"", images:[{src: "🍓", caption: ""},]
   },
 ];
 
@@ -254,7 +262,7 @@ function renderGrid() {
   const filtered = current==="全部" ? items : items.filter(i=>i.cat===current);
   if(!filtered.length){ gridEl.innerHTML=`<div class="empty">该分类暂无菜品</div>`; return; }
   gridEl.innerHTML = filtered.map(item=>{
-    const first = item.images[0];
+    const first = item.images[0].src;
     const isImg = first.startsWith('http') || first.match(/\.(jpg|jpeg|png|webp|gif)$/i);
     const imgHtml = isImg ? `<img src="${first}" alt="${item.name}">` : first;
     const multi = item.images.length>1 && !item.sold;
@@ -294,10 +302,13 @@ window.openModal=function(id){
   slideIdx=0; selectedVariant=0;
   const imgs=currentItem.images;
 
-  track.innerHTML=imgs.map(src=>
-    (src.startsWith('http') || src.match(/\.(jpg|jpeg|png|webp|gif)$/i))
-      ? `<div class="carousel-slide"><img src="${src}" alt=""></div>`
-      : `<div class="carousel-slide">${src}</div>`
+ track.innerHTML = imgs.map(item =>
+  (item.src.startsWith('http') || item.src.match(/\.(jpg|jpeg|png|webp|gif)$/i))
+    ? `<div class="carousel-slide">
+         <img src="${item.src}" alt="">
+         ${item.caption ? `<div class="slide-caption">${item.caption}</div>` : ''}
+       </div>`
+    : `<div class="carousel-slide">${item.src}</div>`
   ).join('');
   dotsEl.innerHTML=imgs.map((_,i)=>`<div class="dot${i===0?' active':''}"></div>`).join('');
   track.style.transform='translateX(0)';
