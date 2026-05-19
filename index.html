@@ -130,7 +130,7 @@ footer a{color:var(--orange-light);text-decoration:none}
 <script>
 const items = [
   {
-    id:1, name:"绿豆糕", cat:"甜品",
+    id:1, name:"绿豆糕商用包装", cat:"甜品",
     variants:[
       {label:"包装S1 4个", price:3.0},
       {label:"包装S2 4个", price:3.0},
@@ -139,12 +139,12 @@ const items = [
       {label:"包装S5 15个", price:10.0},
       {label:"包装P1 18个", price:12.0},
       {label:"独立包装D1 8个", price:5.6},
-      {label:"独立包装D2 8个", price:5.6},
-      {label:"独立包装D3 16个", price:10.5},
+      {label:"独立包装D2 16个", price:10.5},
       {label:"内盒包装N1 8个", price:5.6},
       {label:"内盒包装N2 12个", price:8.0}
+      
     ],
-    desc:"口味选择： 原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 桂花蜜。",
+    desc:"口味选择： 原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙。",
     tag:"", images:[
       {src: "bayueshi/lvdougao/mmexport1770666582926.jpg", caption: ""},
       {src: "bayueshi/lvdougao/mmexport1770667292330.jpg", caption: "包装S1 4个"},
@@ -157,75 +157,102 @@ const items = [
       {src: "bayueshi/lvdougao/ldg_20260519174408_119_24.jpg", caption: "内盒包装N1 8个"},
       {src: "bayueshi/lvdougao/6bcae18977a50932abcc1724b6de6bf9.jpg", caption: "内盒包装N2 12个"},
       {src: "bayueshi/lvdougao/52f5850bd673a055533e4c8c372649ac.jpg", caption: "独立包装D1 8个"},
-      {src: "bayueshi/lvdougao/8a581f16802eefe7cc3b72d77bdc908f.jpg", caption: "独立包装D2 8个"},
-      {src: "bayueshi/lvdougao/8dedb819893e6fb5eae806bdffb85add.jpg", caption: "独立包装D3 16个"},
+      {src: "bayueshi/lvdougao/8dedb819893e6fb5eae806bdffb85add.jpg", caption: "独立包装D2 16个"},
     ]
   },
   {
-    id:2, name:"玫瑰花茶", cat:"其他",
+    id:2, name:"绿豆糕普通包装", cat:"甜品",
     variants:[
-      {label:"小份 10g", price:1.5},
+      {label:"普通盒装 8个", price:4.8},
+      {label:"普通盒装 12个", price:7.2},
+      {label:"散装（袋装）：独立包装/独立小盒装 8个起", price:4.8},
+      {label:"儿童/迷你 12个", price:4.8}
+      {label:"儿童/迷你 18个", price:7.2}
+    ],
+    desc:"口味选择： 原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙。",
+    tag:"", images:[
+      {src: "bayueshi/lvdougao2/2b7d51e6aa9d6b9d9d1547b36e431809.jpg",caption: " "},
+      {src: "bayueshi/lvdougao2/77b93c77bacdc82981ff095d19216a4b.jpg",caption: " "},
+      {src: "bayueshi/lvdougao2/24c676fe979af2678a92e7fc874c1f7b.jpg",caption: "8个装"},
+      {src: "bayueshi/lvdougao2/538f81f33f6becf2d5b32ff5a158d543.jpg",caption: "12个装"}
+      {src: "bayueshi/lvdougao2/0452b1fc1503fe60c1b6c0b2d40b763a.jpg",caption: "袋装"}
+      {src: "bayueshi/lvdougao2/26994476d8308344aedc8113d47b205f.jpg",caption: "独立包装"}
+    ]
+  },
+  {
+    id:3, name:"水果花茶", cat:"茶水",
+    variants:[
       {label:"中份 20g", price:3.0},
       {label:"大份铁盒 30g", price:5.0}
     ],
-    desc:"花香浓郁 好喝。",
+    desc:"由商家随机组合品种：朗姆覆盆子 梦幻玫瑰 黑加仑蓝莓。",
     tag:"", images:[
       {src: "bayueshi/huacha/mmexport1773176207002.jpg",caption: " "},
-      {src: "bayueshi/huacha/mmexport1773178381813.jpg",caption: "小份"},
       {src: "bayueshi/huacha/mmexport1773178378139.jpg",caption: "中份"},
-      {src: "bayueshi/huacha/mmexport1773178375853.jpg",caption: "大粉"},
+      {src: "bayueshi/huacha/a4f4eb0f3438b217d86f893e96bcd4e5.jpg",caption: "大份"},
     ]
   },
   {
-    id:3, name:"粽子", cat:"冷菜",
+    id:4, name:"粽子", cat:"主食",
     variants:[
       {label:"散装 6个", price:6.0},
-      {label:"礼盒1 6个棕6个绿豆糕", price:10.8},
-      {label:"礼盒2 9个棕9个绿豆糕", price:16.0}
+      {label:"礼盒A 6个棕6个绿豆糕", price:10.8},
+      {label:"礼盒A 9个棕9个绿豆糕", price:16.0}
     ],
     desc:"好吃。",
     tag:"", images:[
       {src: "bayueshi/zonzhi/mmexport1774536907839.jpg", caption: "散装"},
       {src: "bayueshi/zonzhi/mmexport1774540310334.jpg", caption: "散装"},
-      {src: "bayueshi/zonzhi/mmexport1774536915636.jpg", caption: "礼盒1"},
-      {src: "bayueshi/zonzhi/mmexport1774536912446.jpg", caption: "礼盒1"},
-      {src: "bayueshi/zonzhi/mmexport1774536928322.jpg", caption: "礼盒2"},
-      {src: "bayueshi/zonzhi/mmexport1774536943221.jpg", caption: "礼盒2"},
+      {src: "bayueshi/zonzhi/mmexport1774536915636.jpg", caption: "礼盒A"},
+      {src: "bayueshi/zonzhi/mmexport1774536912446.jpg", caption: "礼盒A"},
+      {src: "bayueshi/zonzhi/mmexport1774536928322.jpg", caption: "礼盒B"},
+      {src: "bayueshi/zonzhi/mmexport1774536943221.jpg", caption: "礼盒B"},
     ]
   },
   {
-    id:4, name:"手撕鸡", cat:"冷菜",
+    id:5, name:"手撕鸡", cat:"冷菜",
     variants:[
       {label:"大分 400g", price:9.0},
       {label:"小分 200g", price:5.0}
     ],
     desc:"香辣爽口，开胃小凉菜。",
-    tag:"", images: [{src: "bayueshi/ssj/mmexport1770897498068.jpg", caption: ""}]
+    tag:"", images: [{src: "bayueshi/ssj/a504f32bf3d96054fef1801a79c1c220.jpg", caption: ""}]
   },
   {
-    id:5, name:"萝卜丝饼", cat:"冷菜",
+    id:6, name:"豆芽饼", cat:"主食",
     variants:[
-      {label:"一份 5个", price:5.0},
+      {label:"一份 6个", price:3.6},
     ],
-    desc:"家常菜 好吃。",
+    desc:"新鲜豆芽 清脆好吃。",
     tag:"", images:[
             {src:"bayueshi/lbsbing/mmexport1770673475591.jpg", caption: ""},
             {src:"bayueshi/lbsbing/mmexport1770673481528.jpg", caption: ""},
              ]
   },
   {
-    id:6, name:"绿豆芽", cat:"果蔬",
+    id:7, name:"绿豆芽", cat:"果蔬",
     variants:[
       {label:"200g", price:2.0},
     ],
     desc:"新鲜脆爽。",
-    tag:"new", images:[
+    tag:"", images:[
+                  {src:"bayueshi/lvdouya/mmexport1770755341195.jpg", caption:""},
+                  {src:"bayueshi/lvdouya/mmexport1770755335818.jpg", caption:""},
+    ]
+  },
+   {
+    id:8, name:"黄豆芽", cat:"果蔬",
+    variants:[
+      {label:"160g", price:2.0},
+    ],
+    desc:"新鲜脆爽。",
+    tag:"", images:[
                   {src:"bayueshi/lvdouya/mmexport1770755341195.jpg", caption:""},
                   {src:"bayueshi/lvdouya/mmexport1770755335818.jpg", caption:""},
     ]
   },
   {
-    id:7, name:"豌豆苗", cat:"果蔬",
+    id:9, name:"豌豆苗", cat:"果蔬",
     variants:[
       {label:"100g", price:2.0},
     ],
@@ -236,31 +263,31 @@ const items = [
     ]
   },
   {
-    id:8, name:"鸡毛菜", cat:"果蔬",
+    id:10, name:"鸡毛菜", cat:"果蔬",
     variants:[
       {label:"一份 160g", price:2.0},
     ],
     desc:"新鲜脆爽。",
-    tag:"new", images:[
+    tag:"", images:[
       {src: "bayueshi/jimaocai/3b09279b70f7ff9c569cc327cdd97d89.jpg", caption: ""},
       {src: "bayueshi/jimaocai/70b84f226f161bfd57c013c587f8f400.jpg", caption: ""},
       {src: "bayueshi/jimaocai/fc7d0e8473ef47a674c7445539fd45a1.jpg", caption: ""},
     ]
   },
   {
-    id:9, name:"萝卜苗", cat:"果蔬",
+    id:11, name:"萝卜苗", cat:"果蔬",
     variants:[
-      {label:"250g", price:4.5},
+      {label:"160g", price:2.0},
     ],
     desc:"新鲜脆爽。",
-    tag:"new", images:[
+    tag:"", images:[
       {src: "bayueshi/luobomiao/7b61f0ccc82384b0be8bfaff4112b506.jpg", caption: ""},
       {src: "bayueshi/luobomiao/8540bdd0aef41f270a172a5058183198.jpg", caption: ""},
       {src: "bayueshi/luobomiao/c6581da738c649263ea3dfe9a2a1e23e.jpg", caption: ""},
     ]
   },
   {
-    id:10, name:"桂花糯米糕", cat:"甜品",
+    id:12, name:"桂花糯米糕", cat:"甜品",
     variants:[
       {label:"一盒 6个", price:3.6},
     ],
@@ -272,65 +299,92 @@ const items = [
   },
 
   {
-    id:11, name:"月饼/酥饼", cat:"甜品",
+    id:13, name:"月饼/酥饼", cat:"甜品",
     variants:[
-      {label:"绿豆基础盒 6个", price:6.0},
-      {label:"鲜肉基础盒 6个", price:7.2},
-      {label:"牛肉基础盒 6个", price:8.4},
-      {label:"绿豆独立包装 6个", price:7.0},
-      {label:"鲜肉独立包装 6个", price:8.2},
-      {label:"绿豆独立包装 9个", price:10.0},
-      {label:"鲜肉独立包装 9个", price:11.8},
+      {label:"绿豆普通盒/袋 6个", price:6.0},
+      {label:"鲜肉普通盒/袋 6个", price:7.2},
+      {label:"牛肉普通盒/袋 6个", price:8.4},
+      {label:"绿豆礼盒包装 6个", price:7.0},
+      {label:"鲜肉礼盒包装 6个", price:8.2},
+      {label:"牛肉礼盒包装 6个", price:9.4},
+      {label:"绿豆礼盒包装 9个", price:10.0},
+      {label:"鲜肉礼盒包装 9个", price:11.8},
+      {label:"牛肉礼盒包装 9个", price:13.6},
+      {label:"3+3+3礼盒(按需调整) 9个", price:12.8},
     ],
     desc:"好吃的。",
     tag:"", images:[
       {src: "bayueshi/yuebing/0265615ca55812a7dd31d0e8b2b5bb3b.jpg", caption: ""},
       {src: "bayueshi/yuebing/9b2667bc02616d5eb07d09c5e448664e.jpg", caption: ""},
       {src: "bayueshi/yuebing/ce2779d20c338c297fbf20bd7639a1f7.jpg", caption: "基础6个装"},
-      {src: "bayueshi/yuebing/b82e96e3cb50788472828efb7265e684.jpg", caption: "独立包装6个装1号"},
-      {src: "bayueshi/yuebing/f6661b4df84b4547c2d26a83355ce085.jpg", caption: "独立包装6个装2号"},
-      {src: "bayueshi/yuebing/8447431a9aec57e8f69e31b7b4c7e7a4.jpg", caption: "独立包装9个装"},
-      {src: "bayueshi/yuebing/5a1a6a1d3718aa0cc9173ea1bab2f6f1.jpg", caption: "礼盒包装"},
-      {src: "bayueshi/yuebing/8f2e5d5a3b93e8903e94902169e9fcb4.jpg", caption: "礼盒包装"},
+      {src: "bayueshi/yuebing/b82e96e3cb50788472828efb7265e684.jpg", caption: "礼盒包装6个装1号"},
+      {src: "bayueshi/yuebing/f6661b4df84b4547c2d26a83355ce085.jpg", caption: "礼盒包装6个装2号"},
+      {src: "bayueshi/yuebing/8447431a9aec57e8f69e31b7b4c7e7a4.jpg", caption: "礼盒包装9个装"},
+      {src: "bayueshi/yuebing/5a1a6a1d3718aa0cc9173ea1bab2f6f1.jpg", caption: "3+3+3包装"},
+      {src: "bayueshi/yuebing/8f2e5d5a3b93e8903e94902169e9fcb4.jpg", caption: "3+3+3包装"},
     ]
   },
   {
-    id:12, name:"彩酥", cat:"甜品",
+    id:14, name:"彩酥", cat:"甜品",
     variants:[
       {label:"一份 4个", price:4.8},
 
     ],
-    desc:"酥脆 好吃。",
+    desc:"有螺旋彩酥 和 桃花酥。",
     tag:"", images:[
       {src: "bayueshi/subing/89db0efe557a5c69f49d8a2eaecbd861.jpg", caption: ""},
-      {src: "bayueshi/subing/00eac14179d45fe4e110bbab18d16f02.jpg", caption: ""},
-
+      {src: "bayueshi/subing/00eac14179d45fe4e110bbab18d16f02.jpg", caption: "螺旋酥"},
+      {src: "bayueshi/subing/4ca82ae5c55325fd2cecaad27dc64962.jpg", caption: "桃花酥"},
     ]
   },
   {
-    id:13, name:"雪花酥", cat:"甜品",
+    id:15, name:"雪花酥", cat:"甜品",
     variants:[
-      {label:"基础盒 8~10个", price:5.0},
-      {label:"礼盒 9~10个", price:6.0},
-      {label:"高级盒 9~10个", price:6.0},
+      {label:"基础盒 10个", price:5.0},
+      {label:"礼盒 10个", price:6.0},
     ],
-    desc:"可选口味： 抹茶 草莓 玫瑰。",
+    desc:"三种口味由店家随机组合： 抹茶 草莓 玫瑰。",
     tag:"", images:[
       {src: "bayueshi/xuehuasu/276367d486fb615364efc130a86c5571.png", caption: ""},
       {src: "bayueshi/xuehuasu/d6239ceadaacbdba7c0ca6a599839325.png", caption: "基础盒装"},
+      {src: "bayueshi/xuehuasu/53c59569173769701dac437974d5482e.jpg", caption: "基础盒装"},
       {src: "bayueshi/xuehuasu/4445ed61e7d61d60721a09e28e84ff31.jpg", caption: "礼盒"},
       {src: "bayueshi/xuehuasu/522029f410de69888fcfa79d4fbfb3d4.jpg", caption: "礼盒"},
-      {src: "bayueshi/xuehuasu/53c59569173769701dac437974d5482e.jpg", caption: "高级盒"},
+
     ]
   },
  {
-    id:14, name:"鲜花酥", cat:"甜品",
+    id:16, name:"鲜花酥", cat:"甜品",
     variants:[
       {label:"一份 6个", price:9.0},
     ],
     desc:"酥脆好吃。",
     tag:"", images:[
       {src: "bayueshi/subing/052120c1956e8919db0fc72f6d1e98a2.jpg", caption: ""},
+    ]
+  },
+   {
+    id:17, name:"凉拌辣牛肉", cat:"冷菜",
+    variants:[
+      {label:"一份 400g", price:13.0},
+      
+    ],
+    desc:"香辣爽口。",
+    tag:"", images:[
+      {src: "bayueshi/subing/052120c1956e8919db0fc72f6d1e98a2.jpg", caption: ""},
+    ]
+  },
+    {
+    id:18, name:"冻干墨红玫瑰", cat:"茶水",
+    variants:[
+      {label:"一份 20g", price:5.0},
+      
+    ],
+    desc:"好喝的。",
+    tag:"", images:[
+      {src: "bayueshi/huaca2/568690b721bfb443d197118ca7980522.jpg", caption: ""},
+      {src: "bayueshi/huaca2/2906affb33cd77435b893335c929fb56.jpg", caption: ""},
+      {src: "bayueshi/huaca2/205e01f30fb23fdb43e3ffee4f97ad63.jpg", caption: ""},
     ]
   },
 ];
@@ -425,7 +479,7 @@ window.openModal=function(id){
     variantsRow.innerHTML=currentItem.variants.map((v,i)=>`
       <button class="variant-btn${i===0?' active':''}" onclick="selectVariant(${i})">
         <span class="v-label">${v.label}</span>
-        <span class="v-price">£${v.price.toFixed(2)}</span>
+        <span class="v-price">€${v.price.toFixed(2)}</span>
       </button>`).join('');
     variantsRow.style.display='flex';
     variantsLabel.style.display='block';
