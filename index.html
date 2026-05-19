@@ -51,7 +51,7 @@ header{background:var(--cream);padding:2.5rem 1.5rem 1rem;text-align:center}
 .modal-overlay.open .modal-sheet{transform:translateY(0)}
 .carousel{position:relative;width:100%;aspect-ratio:1/1;background:var(--cream2);overflow:hidden}
 .carousel-track{display:flex;height:100%;transition:transform .3s cubic-bezier(.32,.72,0,1)}
-.carousel-slide{min-width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:5rem;flex-shrink:0;overflow:hidden;position:relative;}
+.carousel-slide{min-width:100%;height:100%;display:block;font-size:5rem;flex-shrink:0;overflow:hidden;position:relative;}
 .slide-caption{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,0.35);color:white;font-size:.72rem;text-align:center;padding:.3rem .5rem;letter-spacing:.05em;}
 .carousel-slide img{width:100%;height:100%;object-fit:cover}
 .carousel-prev,.carousel-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.82);border:none;border-radius:50%;width:32px;height:32px;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--orange-deep);z-index:2}
@@ -132,12 +132,34 @@ const items = [
   {
     id:1, name:"绿豆糕", cat:"甜品",
     variants:[
-      {label:"单个", price:2.5},
-      {label:"六件装", price:13},
-      {label:"十二件装", price:24}
+      {label:"包装S1 4个", price:3.0},
+      {label:"包装S2 4个", price:3.0},
+      {label:"包装S3 10个", price:7.0},
+      {label:"包装S4 12个", price:8.5},
+      {label:"包装S5 15个", price:10.0},
+      {label:"包装P1 18个", price:12.0},
+      {label:"独立包装D1 8个", price:5.6},
+      {label:"独立包装D2 8个", price:5.6},
+      {label:"独立包装D3 16个", price:10.5},
+      {label:"内盒包装N1 8个", price:5.6},
+      {label:"内盒包装N2 12个", price:8.0}
     ],
     desc:"紫芋内馅，外皮Q弹，一口软糯。每颗手工包制，馅料饱满不甜腻。",
-    tag:"new", images:[{src: "🍓", caption: ""},]
+    tag:"new", images:[
+      {src: "bayueshi/lvdougao/mmexport1770666582926.jpg", caption: ""},
+      {src: "bayueshi/lvdougao/mmexport1770667292330.jpg", caption: "包装S1 4个"},
+      {src: "bayueshi/lvdougao/mmexport1770667288185.jpg", caption: "包装S2 4个"},
+      {src: "bayueshi/lvdougao/mmexport1770667290088.jpg", caption: "包装S3 10个"},
+      {src: "bayueshi/lvdougao/mmexport1770667284341.jpg", caption: "包装S4 12个"},
+      {src: "bayueshi/lvdougao/mmexport1770667286407.jpg", caption: "包装S5 15个"},
+      {src: "bayueshi/lvdougao/94b6e6540f4ec9b0198ddeb4ea54beda.jpg", caption: "包装P1 18个"},
+      {src: "bayueshi/lvdougao/56d91ffc76426d6ac222100f3dc2e9bb.jpg", caption: "包装P1 18个"},
+      {src: "bayueshi/lvdougao/ldg_20260519174408_119_24.jpg", caption: "内盒包装N1 8个"},
+      {src: "bayueshi/lvdougao/6bcae18977a50932abcc1724b6de6bf9.jpg", caption: "内盒包装N2 12个"},
+      {src: "bayueshi/lvdougao/52f5850bd673a055533e4c8c372649ac.jpg", caption: "独立包装D1 8个"},
+      {src: "bayueshi/lvdougao/8a581f16802eefe7cc3b72d77bdc908f.jpg", caption: "独立包装D2 8个"},
+      {src: "bayueshi/lvdougao/8dedb819893e6fb5eae806bdffb85add.jpg", caption: "独立包装D3 16个"},
+    ]
   },
   {
     id:2, name:"玫瑰花茶", cat:"其他",
