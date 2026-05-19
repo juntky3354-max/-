@@ -249,7 +249,8 @@ function renderGrid() {
   if(!filtered.length){ gridEl.innerHTML=`<div class="empty">该分类暂无菜品</div>`; return; }
   gridEl.innerHTML = filtered.map(item=>{
     const first = item.images[0];
-    const imgHtml = first.startsWith('http') ? `<img src="${first}" alt="${item.name}">` : first;
+    const isImg = first.startsWith('http') || first.match(/\.(jpg|jpeg|png|webp|gif)$/i);
+    const imgHtml = isImg ? `<img src="${first}" alt="${item.name}">` : first;
     const multi = item.images.length>1 && !item.sold;
     const showFrom = item.variants.length>1;
     return `
@@ -288,9 +289,9 @@ window.openModal=function(id){
   const imgs=currentItem.images;
 
   track.innerHTML=imgs.map(src=>
-    src.startsWith('http')
-      ?`<div class="carousel-slide"><img src="${src}" alt=""></div>`
-      :`<div class="carousel-slide">${src}</div>`
+    (src.startsWith('http') || src.match(/\.(jpg|jpeg|png|webp|gif)$/i))
+      ? `<div class="carousel-slide"><img src="${src}" alt=""></div>`
+      : `<div class="carousel-slide">${src}</div>`
   ).join('');
   dotsEl.innerHTML=imgs.map((_,i)=>`<div class="dot${i===0?' active':''}"></div>`).join('');
   track.style.transform='translateX(0)';
