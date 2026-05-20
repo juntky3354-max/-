@@ -4,269 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>八月柿 · 价格目录</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#FFF8F0;
-  --cream2:#FFF2E4;
-  --orange:#E8692A;
-  --orange-light:#F5894A;
-  --orange-pale:#FDEADB;
-  --orange-deep:#C4501A;
-  --brown:#7A4520;
-  --text-main:#3D2010;
-  --text-muted:#8B6044;
-  --text-light:#B88A6A;
+  --cream:#FFF8F0; --cream2:#FFF2E4; --orange:#E8692A; --orange-light:#F5894A;
+  --orange-pale:#FDEADB; --orange-deep:#C4501A; --brown:#7A4520;
+  --text-main:#3D2010; --text-muted:#8B6044; --text-light:#B88A6A;
   --border:rgba(122,69,32,0.13);
-  --gold:#C8902A;
 }
-
 html{scroll-behavior:smooth}
-body{
-  font-family:'Noto Sans SC',sans-serif;
-  background:var(--cream);
-  color:var(--text-main);
-  min-height:100vh;
-}
+body{font-family:'Noto Sans SC',sans-serif;background:var(--cream);color:var(--text-main);min-height:100vh}
 
-/* ── HEADER ── */
-header{
-  background:linear-gradient(160deg,#fff7ee 0%,#ffeedd 100%);
-  border-bottom:1px solid var(--border);
-  padding:2.2rem 1.5rem 1.6rem;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-}
-header::before{
-  content:'';position:absolute;inset:0;
-  background:radial-gradient(ellipse 60% 80% at 50% -10%, rgba(232,105,42,.08) 0%, transparent 70%);
-  pointer-events:none;
-}
+/* HEADER */
+header{background:linear-gradient(160deg,#fff7ee,#ffeedd);border-bottom:1px solid var(--border);padding:2rem 1.5rem 1.5rem;text-align:center;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% -10%,rgba(232,105,42,.08),transparent 70%);pointer-events:none}
 .logo-wrap{display:flex;align-items:center;justify-content:center;gap:.75rem;margin-bottom:.5rem}
 .logo-img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:2px solid var(--orange-pale);box-shadow:0 2px 8px rgba(196,80,26,.18)}
-.brand-col{text-align:left}
-.brand-name{font-family:'Noto Serif SC',serif;font-size:1.7rem;font-weight:700;color:var(--orange-deep);letter-spacing:.15em;line-height:1}
-.brand-sub{font-size:.72rem;color:var(--text-muted);letter-spacing:.22em;margin-top:.2rem}
-.header-divider{width:48px;height:1.5px;background:linear-gradient(90deg,transparent,var(--orange-light),transparent);margin:.9rem auto .6rem}
-.header-badge{
-  display:inline-block;
-  background:var(--orange-pale);
-  color:var(--orange-deep);
-  font-size:.72rem;
-  padding:.28rem .9rem;
-  border-radius:999px;
-  letter-spacing:.06em;
-  font-weight:500;
-}
+.brand-name{font-family:'Noto Serif SC',serif;font-size:1.7rem;font-weight:700;color:var(--orange-deep);letter-spacing:.15em}
+.brand-sub{font-size:.72rem;color:var(--text-muted);letter-spacing:.22em;margin-top:.18rem}
+.header-divider{width:48px;height:1.5px;background:linear-gradient(90deg,transparent,var(--orange-light),transparent);margin:.8rem auto .6rem}
+.header-badge{display:inline-block;background:var(--orange-pale);color:var(--orange-deep);font-size:.72rem;padding:.28rem .9rem;border-radius:999px;letter-spacing:.06em;font-weight:500}
 
-/* ── STICKY TOC NAV ── */
-.toc-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(255,248,240,.95);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--border);
-  padding:.6rem 1rem;
-  display:flex;align-items:center;gap:.5rem;
-  overflow-x:auto;scrollbar-width:none;
-}
+/* STICKY NAV (mobile) */
+.toc-nav{position:sticky;top:0;z-index:50;background:rgba(255,248,240,.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);padding:.55rem 1rem;display:flex;align-items:center;gap:.45rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .toc-nav::-webkit-scrollbar{display:none}
-.toc-pill{
-  flex-shrink:0;
-  display:flex;align-items:center;gap:.3rem;
-  padding:.35rem .85rem;
-  border-radius:999px;
-  border:1.5px solid var(--border);
-  background:white;
-  color:var(--text-muted);
-  font-size:.78rem;
-  text-decoration:none;
-  font-family:'Noto Sans SC',sans-serif;
-  transition:all .18s;
-  white-space:nowrap;
-}
-.toc-pill:hover,.toc-pill.active{
-  background:var(--orange);
-  border-color:var(--orange);
-  color:white;
-}
-.toc-pill .dot{
-  width:6px;height:6px;border-radius:50%;
-  background:currentColor;opacity:.6;
-}
+.toc-pill{flex-shrink:0;display:flex;align-items:center;gap:.3rem;padding:.32rem .8rem;border-radius:999px;border:1.5px solid var(--border);background:white;color:var(--text-muted);font-size:.78rem;text-decoration:none;font-family:'Noto Sans SC',sans-serif;transition:all .18s;white-space:nowrap}
+.toc-pill:hover,.toc-pill.active{background:var(--orange);border-color:var(--orange);color:white}
+.toc-pill .dot{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.55}
 
-/* ── NOTICE ── */
-.notice-wrap{padding:.9rem 1.1rem .3rem}
-.notice{
-  background:white;
-  border:1px solid var(--border);
-  border-radius:14px;
-  padding:.8rem 1rem;
-  font-size:.75rem;
-  color:var(--text-muted);
-  line-height:1.75;
-  text-align:center;
-}
+/* NOTICE */
+.notice-wrap{padding:.85rem 1.1rem .2rem}
+.notice{background:white;border:1px solid var(--border);border-radius:14px;padding:.75rem 1rem;font-size:.74rem;color:var(--text-muted);line-height:1.8;text-align:center}
 .notice strong{color:var(--orange-deep);font-weight:500}
 
-/* ── CATEGORY SECTION ── */
-.cat-section{margin-top:1.6rem;padding:0 1.1rem}
-.cat-section:first-of-type{margin-top:.8rem}
-.cat-header{
-  display:flex;align-items:center;gap:.65rem;
-  margin-bottom:.8rem;
-  padding-bottom:.55rem;
-  border-bottom:2px solid var(--orange-pale);
-}
-.cat-icon{font-size:1.2rem}
-.cat-title{
-  font-family:'Noto Serif SC',serif;
-  font-size:1.05rem;
-  font-weight:700;
-  color:var(--orange-deep);
-  letter-spacing:.06em;
-}
-.cat-count{
-  margin-left:auto;
-  font-size:.7rem;
-  color:var(--text-light);
-  background:var(--orange-pale);
-  padding:.15rem .55rem;
-  border-radius:999px;
-}
-
-/* ── PRICE TABLE ── */
-.price-table{width:100%;border-collapse:collapse}
-.price-row{
-  border-bottom:1px solid var(--border);
-  transition:background .15s;
-}
-.price-row:last-child{border-bottom:none}
-.price-row:hover{background:rgba(253,234,219,.3)}
-
-.cell-name{
-  padding:.75rem .5rem .75rem 0;
-  vertical-align:top;
-}
-.item-name{
-  font-family:'Noto Serif SC',serif;
-  font-size:.88rem;
-  font-weight:600;
-  color:var(--text-main);
-  line-height:1.4;
-}
-.item-desc{
-  font-size:.68rem;
-  color:var(--text-light);
-  line-height:1.45;
-  margin-top:.18rem;
-  max-width:200px;
-}
-
-.cell-variants{
-  padding:.75rem 0;
-  vertical-align:top;
-}
-.variant-list{display:flex;flex-direction:column;gap:.28rem}
-.v-row{display:flex;align-items:baseline;justify-content:space-between;gap:.4rem}
-.v-label{
-  font-size:.72rem;
-  color:var(--text-muted);
-  line-height:1.3;
-  flex:1;
-}
-.v-price{
-  font-size:.85rem;
-  font-weight:600;
-  color:var(--orange);
-  white-space:nowrap;
-  letter-spacing:.02em;
-}
-.v-unit{font-size:.65rem;color:var(--text-light);font-weight:400;margin-left:1px}
-
-/* single-price styling */
-.single-price{
-  font-size:.95rem;
-  font-weight:600;
-  color:var(--orange);
-  white-space:nowrap;
-}
-
-/* dotted leader line between label and price */
-.v-dots{
-  flex:1;
-  border-bottom:1.5px dotted var(--border);
-  margin:0 .3rem;
-  margin-bottom:3px;
-  min-width:12px;
-}
-
-/* ── FOOTER ── */
-footer{
-  text-align:center;
-  padding:2rem 1.5rem 2.5rem;
-  font-size:.72rem;
-  color:var(--text-light);
-  line-height:2;
-  border-top:1px solid var(--border);
-  margin-top:2rem;
-}
-footer a{color:var(--orange-light);text-decoration:none}
-.footer-logo{font-family:'Noto Serif SC',serif;color:var(--orange-deep);font-size:.88rem;font-weight:600;letter-spacing:.1em;margin-bottom:.3rem}
-
-/* back-to-top button */
-.back-top{
-  display:block;
-  width:38px;height:38px;
-  border-radius:50%;
-  background:var(--orange);
-  color:white;
-  font-size:1rem;
-  text-align:center;
-  line-height:38px;
-  position:fixed;bottom:1.5rem;right:1.2rem;
-  text-decoration:none;
-  box-shadow:0 3px 12px rgba(196,80,26,.35);
-  opacity:0;transition:opacity .25s;
-  z-index:40;
-}
-.back-top.show{opacity:1}
-
-/* ── TOC sidebar for wide screens ── */
+/* LAYOUT: sidebar on desktop */
 @media(min-width:680px){
-  .page-wrap{display:grid;grid-template-columns:180px 1fr;gap:0;max-width:860px;margin:0 auto}
-  .sidebar-toc{
-    position:sticky;top:0;align-self:start;height:100vh;
-    overflow-y:auto;padding:1.5rem .8rem 2rem;
-    border-right:1px solid var(--border);
-    background:white;
-  }
-  .sidebar-title{font-family:'Noto Serif SC',serif;font-size:.8rem;color:var(--text-light);letter-spacing:.12em;margin-bottom:.9rem;text-align:center}
-  .sidebar-link{
-    display:flex;align-items:center;gap:.45rem;
-    padding:.42rem .65rem;
-    border-radius:9px;
-    font-size:.8rem;
-    color:var(--text-muted);
-    text-decoration:none;
-    margin-bottom:.15rem;
-    transition:all .16s;
-  }
+  .page-wrap{display:grid;grid-template-columns:170px 1fr;max-width:860px;margin:0 auto}
+  .sidebar-toc{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;padding:1.4rem .75rem 2rem;border-right:1px solid var(--border);background:white}
+  .sidebar-title{font-family:'Noto Serif SC',serif;font-size:.78rem;color:var(--text-light);letter-spacing:.12em;margin-bottom:.85rem;text-align:center}
+  .sidebar-link{display:flex;align-items:center;gap:.4rem;padding:.4rem .6rem;border-radius:9px;font-size:.8rem;color:var(--text-muted);text-decoration:none;margin-bottom:.12rem;transition:all .16s}
   .sidebar-link:hover,.sidebar-link.active{background:var(--orange-pale);color:var(--orange-deep);font-weight:500}
   .toc-nav{display:none}
 }
-@media(max-width:679px){
-  .sidebar-toc{display:none}
-}
+@media(max-width:679px){.sidebar-toc{display:none}}
+
+/* CATEGORY SECTION */
+.cat-section{margin-top:1.5rem;padding:0 1.1rem}
+.cat-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;padding-bottom:.5rem;border-bottom:2px solid var(--orange-pale)}
+.cat-icon{font-size:1.15rem}
+.cat-title{font-family:'Noto Serif SC',serif;font-size:1.02rem;font-weight:700;color:var(--orange-deep);letter-spacing:.06em}
+.cat-count{margin-left:auto;font-size:.7rem;color:var(--text-light);background:var(--orange-pale);padding:.14rem .5rem;border-radius:999px}
+
+/* PRICE TABLE */
+.price-table{width:100%;border-collapse:collapse}
+.price-row{border-bottom:1px solid var(--border);transition:background .15s}
+.price-row:last-child{border-bottom:none}
+.price-row:hover{background:rgba(253,234,219,.3)}
+.cell-name{padding:.7rem .5rem .7rem 0;vertical-align:top;width:42%}
+.item-name{font-family:'Noto Serif SC',serif;font-size:.88rem;font-weight:600;color:var(--text-main);line-height:1.4}
+.item-desc{font-size:.68rem;color:var(--text-light);line-height:1.45;margin-top:.15rem}
+.cell-variants{padding:.7rem 0;vertical-align:top}
+.variant-list{display:flex;flex-direction:column;gap:.25rem}
+.v-row{display:flex;align-items:baseline;gap:.3rem}
+.v-label{font-size:.72rem;color:var(--text-muted);flex:1;line-height:1.3}
+.v-dots{flex:1;border-bottom:1.5px dotted var(--border);margin:0 .25rem;margin-bottom:3px;min-width:8px}
+.v-price{font-size:.85rem;font-weight:600;color:var(--orange);white-space:nowrap}
+.single-price{font-size:.95rem;font-weight:600;color:var(--orange);padding:.14rem 0}
+.single-label{font-size:.72rem;color:var(--text-muted);margin-left:.25rem;font-weight:400}
+
+/* FOOTER */
+footer{text-align:center;padding:1.8rem 1.5rem 2.5rem;font-size:.72rem;color:var(--text-light);line-height:2;border-top:1px solid var(--border);margin-top:1.8rem}
+footer a{color:var(--orange-light);text-decoration:none}
+.footer-logo{font-family:'Noto Serif SC',serif;color:var(--orange-deep);font-size:.88rem;font-weight:600;letter-spacing:.1em;margin-bottom:.25rem}
+.back-top{display:block;width:36px;height:36px;border-radius:50%;background:var(--orange);color:white;font-size:1rem;text-align:center;line-height:36px;position:fixed;bottom:1.4rem;right:1.1rem;text-decoration:none;box-shadow:0 3px 10px rgba(196,80,26,.35);opacity:0;transition:opacity .25s;z-index:40}
+.back-top.show{opacity:1}
 </style>
 </head>
 <body>
 
 <header>
   <div class="logo-wrap">
-    <img class="logo-img" src="https://juntky3354-max.github.io/-/bayueshi/icon.jpg" alt="八月柿">
-    <div class="brand-col">
+    <img class="logo-img" src="https://juntky3354-max.github.io/-/bayueshi/icon.jpg" alt="八月柿" onerror="this.style.display='none'">
+    <div>
       <div class="brand-name">八月柿</div>
       <div class="brand-sub">手作点心 · 新鲜现做</div>
     </div>
@@ -275,364 +95,239 @@ footer a{color:var(--orange-light);text-decoration:none}
   <div class="header-badge">📋 菜品价格目录</div>
 </header>
 
-<!-- Mobile sticky nav -->
-<nav class="toc-nav" id="tocNav">
-  <a class="toc-pill active" href="#cat-甜品"><span class="dot"></span>甜品</a>
-  <a class="toc-pill" href="#cat-主食"><span class="dot"></span>主食</a>
-  <a class="toc-pill" href="#cat-冷菜"><span class="dot"></span>冷菜</a>
-  <a class="toc-pill" href="#cat-茶水"><span class="dot"></span>茶水</a>
-  <a class="toc-pill" href="#cat-果蔬"><span class="dot"></span>果蔬</a>
-</nav>
+<nav class="toc-nav" id="tocNav"></nav>
 
 <div class="page-wrap">
-
-  <!-- Desktop sidebar -->
-  <aside class="sidebar-toc">
+  <aside class="sidebar-toc" id="sidebar">
     <div class="sidebar-title">· 目录 ·</div>
-    <a class="sidebar-link active" href="#cat-甜品">🍡 甜品</a>
-    <a class="sidebar-link" href="#cat-主食">🍱 主食</a>
-    <a class="sidebar-link" href="#cat-冷菜">🥢 冷菜</a>
-    <a class="sidebar-link" href="#cat-茶水">🍵 茶水</a>
-    <a class="sidebar-link" href="#cat-果蔬">🌿 果蔬</a>
   </aside>
-
-  <main>
+  <main id="main">
     <div class="notice-wrap">
       <div class="notice">
-        <strong>自提</strong>：Swieqi小公园附近 &nbsp;｜&nbsp;
-        <strong>配送</strong>（以Swieqi邮局为中心）<br>
+        <strong>自提</strong>：Swieqi小公园附近 &nbsp;｜&nbsp; <strong>配送</strong>（以Swieqi邮局为中心）<br>
         1km以内 €10起送 &nbsp;·&nbsp; 2–3km €15起送 &nbsp;·&nbsp; 3–5km €20起送 &nbsp;·&nbsp; 5km以上 €30起送<br>
-        微信下单请备注品名与数量 &nbsp;·&nbsp; 以上价格单位为欧元
+        微信下单请备注品名与数量 &nbsp;·&nbsp; 价格单位为欧元
       </div>
     </div>
-
-    <!-- 甜品 -->
-    <section class="cat-section" id="cat-甜品">
-      <div class="cat-header">
-        <span class="cat-icon">🍡</span>
-        <span class="cat-title">甜品</span>
-        <span class="cat-count">9 款</span>
-      </div>
-      <table class="price-table">
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">绿豆糕（普通包装）</div>
-            <div class="item-desc">原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">普通盒装 8个</span><span class="v-dots"></span><span class="v-price">€4.80</span></div>
-              <div class="v-row"><span class="v-label">普通盒装 12个</span><span class="v-dots"></span><span class="v-price">€7.20</span></div>
-              <div class="v-row"><span class="v-label">散装/袋装 8个起</span><span class="v-dots"></span><span class="v-price">€4.80</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">绿豆糕（礼盒包装）</div>
-            <div class="item-desc">原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">包装S1 4个</span><span class="v-dots"></span><span class="v-price">€3.00</span></div>
-              <div class="v-row"><span class="v-label">包装S2 4个</span><span class="v-dots"></span><span class="v-price">€3.00</span></div>
-              <div class="v-row"><span class="v-label">包装S3 10个</span><span class="v-dots"></span><span class="v-price">€7.00</span></div>
-              <div class="v-row"><span class="v-label">包装S4 12个</span><span class="v-dots"></span><span class="v-price">€8.50</span></div>
-              <div class="v-row"><span class="v-label">包装S5 15个</span><span class="v-dots"></span><span class="v-price">€10.00</span></div>
-              <div class="v-row"><span class="v-label">包装P1 18个</span><span class="v-dots"></span><span class="v-price">€12.00</span></div>
-              <div class="v-row"><span class="v-label">独立包装D1 8个</span><span class="v-dots"></span><span class="v-price">€5.60</span></div>
-              <div class="v-row"><span class="v-label">独立包装D2 16个</span><span class="v-dots"></span><span class="v-price">€10.50</span></div>
-              <div class="v-row"><span class="v-label">内盒包装N1 8个</span><span class="v-dots"></span><span class="v-price">€5.60</span></div>
-              <div class="v-row"><span class="v-label">内盒包装N2 12个</span><span class="v-dots"></span><span class="v-price">€8.00</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">儿童/迷你绿豆糕</div>
-            <div class="item-desc">原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">小份 12个</span><span class="v-dots"></span><span class="v-price">€4.80</span></div>
-              <div class="v-row"><span class="v-label">大份 18个</span><span class="v-dots"></span><span class="v-price">€7.20</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">桂花糯米糕</div>
-            <div class="item-desc">桂花飘香，糯而不腻</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€3.60 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 6个</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">月饼 / 酥饼</div>
-            <div class="item-desc">一口掉渣，层层酥香</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">绿豆 普通盒/袋 6个</span><span class="v-dots"></span><span class="v-price">€6.00</span></div>
-              <div class="v-row"><span class="v-label">鲜肉 普通盒/袋 6个</span><span class="v-dots"></span><span class="v-price">€7.20</span></div>
-              <div class="v-row"><span class="v-label">牛肉 普通盒/袋 6个</span><span class="v-dots"></span><span class="v-price">€8.40</span></div>
-              <div class="v-row"><span class="v-label">绿豆 礼盒 6个</span><span class="v-dots"></span><span class="v-price">€7.00</span></div>
-              <div class="v-row"><span class="v-label">鲜肉 礼盒 6个</span><span class="v-dots"></span><span class="v-price">€8.20</span></div>
-              <div class="v-row"><span class="v-label">牛肉 礼盒 6个</span><span class="v-dots"></span><span class="v-price">€9.40</span></div>
-              <div class="v-row"><span class="v-label">绿豆 礼盒 9个</span><span class="v-dots"></span><span class="v-price">€10.00</span></div>
-              <div class="v-row"><span class="v-label">鲜肉 礼盒 9个</span><span class="v-dots"></span><span class="v-price">€11.80</span></div>
-              <div class="v-row"><span class="v-label">牛肉 礼盒 9个</span><span class="v-dots"></span><span class="v-price">€13.60</span></div>
-              <div class="v-row"><span class="v-label">3+3+3礼盒 9个</span><span class="v-dots"></span><span class="v-price">€12.80</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">彩酥</div>
-            <div class="item-desc">螺旋彩酥 / 桃花酥</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€4.80 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 4个</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">雪花酥</div>
-            <div class="item-desc">蓝莓 抹茶 草莓 玫瑰（随机组合）</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">基础盒 10个</span><span class="v-dots"></span><span class="v-price">€5.00</span></div>
-              <div class="v-row"><span class="v-label">礼盒 10个</span><span class="v-dots"></span><span class="v-price">€6.00</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">鲜花饼</div>
-            <div class="item-desc">花香四溢，酥软香甜</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€9.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 6个</span></div>
-          </td>
-        </tr>
-
-      </table>
-    </section>
-
-    <!-- 主食 -->
-    <section class="cat-section" id="cat-主食">
-      <div class="cat-header">
-        <span class="cat-icon">🍱</span>
-        <span class="cat-title">主食</span>
-        <span class="cat-count">2 款</span>
-      </div>
-      <table class="price-table">
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">匠心手工粽子</div>
-            <div class="item-desc">鲜肉 红枣 椰枣 红豆豆沙 玫瑰豆沙</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">散装 6个</span><span class="v-dots"></span><span class="v-price">€6.00</span></div>
-              <div class="v-row"><span class="v-label">礼盒A 6个</span><span class="v-dots"></span><span class="v-price">€7.50</span></div>
-              <div class="v-row"><span class="v-label">礼盒B 9个</span><span class="v-dots"></span><span class="v-price">€11.00</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">豆芽饼</div>
-            <div class="item-desc">现烙现卖，清脆可口</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€3.60 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 6个</span></div>
-          </td>
-        </tr>
-
-      </table>
-    </section>
-
-    <!-- 冷菜 -->
-    <section class="cat-section" id="cat-冷菜">
-      <div class="cat-header">
-        <span class="cat-icon">🥢</span>
-        <span class="cat-title">冷菜</span>
-        <span class="cat-count">2 款</span>
-      </div>
-      <table class="price-table">
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">手撕鸡</div>
-            <div class="item-desc">椒麻鲜香，肉质鲜嫩</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">大份 400g</span><span class="v-dots"></span><span class="v-price">€9.00</span></div>
-              <div class="v-row"><span class="v-label">小份 200g</span><span class="v-dots"></span><span class="v-price">€5.00</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">凉拌辣牛肉</div>
-            <div class="item-desc">香辣开胃，回味十足</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€13.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 400g</span></div>
-          </td>
-        </tr>
-
-      </table>
-    </section>
-
-    <!-- 茶水 -->
-    <section class="cat-section" id="cat-茶水">
-      <div class="cat-header">
-        <span class="cat-icon">🍵</span>
-        <span class="cat-title">茶水</span>
-        <span class="cat-count">2 款</span>
-      </div>
-      <table class="price-table">
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">水果花茶</div>
-            <div class="item-desc">朗姆覆盆子 梦幻玫瑰 黑加仑蓝莓（随机组合）</div>
-          </td>
-          <td class="cell-variants">
-            <div class="variant-list">
-              <div class="v-row"><span class="v-label">中份 20g</span><span class="v-dots"></span><span class="v-price">€3.00</span></div>
-              <div class="v-row"><span class="v-label">大份 30g</span><span class="v-dots"></span><span class="v-price">€5.00</span></div>
-            </div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">冻干墨红玫瑰</div>
-            <div class="item-desc">花香清润，悦享时光</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€5.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 30g</span></div>
-          </td>
-        </tr>
-
-      </table>
-    </section>
-
-    <!-- 果蔬 -->
-    <section class="cat-section" id="cat-果蔬">
-      <div class="cat-header">
-        <span class="cat-icon">🌿</span>
-        <span class="cat-title">果蔬</span>
-        <span class="cat-count">5 款</span>
-      </div>
-      <table class="price-table">
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">绿豆芽</div>
-            <div class="item-desc">健康天然，新鲜现摘</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€2.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 200g</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">黄豆芽</div>
-            <div class="item-desc">现发黄豆芽，鲜嫩水灵</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€2.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 160g</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">豌豆苗</div>
-            <div class="item-desc">现采纯绿色，清香鲜嫩</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€2.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 100g</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">鸡毛菜</div>
-            <div class="item-desc">自然生长，家常百搭</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€2.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 160g</span></div>
-          </td>
-        </tr>
-
-        <tr class="price-row">
-          <td class="cell-name">
-            <div class="item-name">萝卜苗</div>
-            <div class="item-desc">脆嫩爽口，清香解腻</div>
-          </td>
-          <td class="cell-variants">
-            <div class="single-price">€2.00 <span style="font-size:.7rem;color:var(--text-light);font-weight:400">/ 160g</span></div>
-          </td>
-        </tr>
-
-      </table>
-    </section>
-
+    <div id="content"></div>
     <footer>
       <div class="footer-logo">八月柿</div>
-      以上价格单位为欧元 &nbsp;·&nbsp; 价格如有变动以实际为准<br>
-      微信联系：<a href="#">微信号</a><br><br>
+      价格如有变动以实际为准 &nbsp;·&nbsp; 微信联系：<a href="#">微信号</a><br>
       © 八月柿 · 手作点心 新鲜现做
     </footer>
-
   </main>
 </div>
 
 <a href="#" class="back-top" id="backTop">↑</a>
 
 <script>
-// Back to top button visibility
-const backTop = document.getElementById('backTop');
-window.addEventListener('scroll', () => {
-  backTop.classList.toggle('show', window.scrollY > 300);
+/* ============================================================
+   ★ 菜单数据区 — 只需修改这里，页面自动更新 ★
+   
+   每个分类格式：
+   { title:"分类名", icon:"表情", items:[...] }
+
+   每个菜品格式：
+   { name:"菜名", desc:"描述（可留空）", sold:false,
+     variants:[
+       { label:"规格说明", price: 数字 },
+       ...
+     ]
+   }
+   
+   sold:true  → 显示"售罄"标记
+   desc       → 可以写""留空
+   variants   → 只有一个时自动显示为单价格式
+============================================================ */
+const MENU = [
+  {
+    title:"甜品", icon:"🍡",
+    items:[
+      { name:"绿豆糕（普通包装）", desc:"原味 蔓越莓 青提 玫瑰 茉莉花 绿茶 牛油果 红豆沙",
+        variants:[
+          { label:"普通盒装 8个", price:4.8 },
+          { label:"普通盒装 12个", price:7.2 },
+          { label:"散装/袋装 8个起", price:4.8 },
+        ]},
+      { name:"绿豆糕（礼盒包装）", desc:"口味同上",
+        variants:[
+          { label:"包装S1 4个",    price:3.0 },
+          { label:"包装S2 4个",    price:3.0 },
+          { label:"包装S3 10个",   price:7.0 },
+          { label:"包装S4 12个",   price:8.5 },
+          { label:"包装S5 15个",   price:10.0 },
+          { label:"包装P1 18个",   price:12.0 },
+          { label:"独立包装D1 8个",  price:5.6 },
+          { label:"独立包装D2 16个", price:10.5 },
+          { label:"内盒包装N1 8个",  price:5.6 },
+          { label:"内盒包装N2 12个", price:8.0 },
+        ]},
+      { name:"儿童/迷你绿豆糕", desc:"口味同上",
+        variants:[
+          { label:"小份 12个", price:4.8 },
+          { label:"大份 18个", price:7.2 },
+        ]},
+      { name:"桂花糯米糕", desc:"桂花飘香，糯而不腻",
+        variants:[{ label:"一盒 6个", price:3.6 }]},
+      { name:"月饼 / 酥饼", desc:"一口掉渣，层层酥香",
+        variants:[
+          { label:"绿豆 普通盒/袋 6个", price:6.0 },
+          { label:"鲜肉 普通盒/袋 6个", price:7.2 },
+          { label:"牛肉 普通盒/袋 6个", price:8.4 },
+          { label:"绿豆 礼盒 6个",      price:7.0 },
+          { label:"鲜肉 礼盒 6个",      price:8.2 },
+          { label:"牛肉 礼盒 6个",      price:9.4 },
+          { label:"绿豆 礼盒 9个",      price:10.0 },
+          { label:"鲜肉 礼盒 9个",      price:11.8 },
+          { label:"牛肉 礼盒 9个",      price:13.6 },
+          { label:"3+3+3礼盒 9个",      price:12.8 },
+        ]},
+      { name:"彩酥", desc:"螺旋彩酥 / 桃花酥",
+        variants:[{ label:"一份 4个", price:4.8 }]},
+      { name:"雪花酥", desc:"蓝莓 抹茶 草莓 玫瑰（随机组合）",
+        variants:[
+          { label:"基础盒 10个", price:5.0 },
+          { label:"礼盒 10个",   price:6.0 },
+        ]},
+      { name:"鲜花饼", desc:"花香四溢，酥软香甜",
+        variants:[
+          { label:"普通装 6个", price:9.0 },
+          { label:"礼盒装 6个", price:10.0 },
+        ]},
+    ]
+  },
+  {
+    title:"主食", icon:"🍱",
+    items:[
+      { name:"匠心手工粽子", desc:"鲜肉 红枣 椰枣 红豆豆沙 玫瑰豆沙",
+        variants:[
+          { label:"散装 6个",  price:6.0 },
+          { label:"礼盒A 6个", price:7.5 },
+          { label:"礼盒B 9个", price:11.0 },
+        ]},
+      { name:"豆芽饼", desc:"现烙现卖，清脆可口",
+        variants:[{ label:"一份 6个", price:3.6 }]},
+    ]
+  },
+  {
+    title:"冷菜", icon:"🥢",
+    items:[
+      { name:"手撕鸡", desc:"椒麻鲜香，肉质鲜嫩",
+        variants:[
+          { label:"大份 400g", price:9.0 },
+          { label:"小份 200g", price:5.0 },
+        ]},
+      { name:"凉拌辣牛肉", desc:"香辣开胃，回味十足",
+        variants:[{ label:"一份 400g", price:13.0 }]},
+    ]
+  },
+  {
+    title:"茶水", icon:"🍵",
+    items:[
+      { name:"水果花茶", desc:"朗姆覆盆子 梦幻玫瑰 黑加仑蓝莓（随机组合）",
+        variants:[
+          { label:"中份 20g", price:3.0 },
+          { label:"大份 30g", price:5.0 },
+        ]},
+      { name:"冻干墨红玫瑰", desc:"花香清润，悦享时光",
+        variants:[{ label:"一份 30g", price:5.0 }]},
+    ]
+  },
+  {
+    title:"果蔬", icon:"🌿",
+    items:[
+      { name:"绿豆芽",  desc:"健康天然，新鲜现摘",   variants:[{ label:"200g",  price:2.0 }]},
+      { name:"黄豆芽",  desc:"现发黄豆芽，鲜嫩水灵", variants:[{ label:"160g",  price:2.0 }]},
+      { name:"豌豆苗",  desc:"现采纯绿色，清香鲜嫩", variants:[{ label:"100g",  price:2.0 }]},
+      { name:"鸡毛菜",  desc:"自然生长，家常百搭",   variants:[{ label:"160g",  price:2.0 }]},
+      { name:"萝卜苗",  desc:"脆嫩爽口，清香解腻",   variants:[{ label:"160g",  price:2.0 }]},
+    ]
+  },
+];
+
+/* ============================================================
+   以下为渲染逻辑，通常不需要修改
+============================================================ */
+function minPrice(item){ return Math.min(...item.variants.map(v=>v.price)); }
+
+function renderVariants(variants){
+  if(variants.length===1){
+    return `<div class="single-price">€${variants[0].price.toFixed(2)}<span class="single-label">${variants[0].label}</span></div>`;
+  }
+  return `<div class="variant-list">${
+    variants.map(v=>`<div class="v-row">
+      <span class="v-label">${v.label}</span>
+      <span class="v-dots"></span>
+      <span class="v-price">€${v.price.toFixed(2)}</span>
+    </div>`).join('')
+  }</div>`;
+}
+
+function renderSection(cat, idx){
+  const id = 'cat-'+cat.title;
+  const rows = cat.items.map(item=>`
+    <tr class="price-row${item.sold?' sold':''}">
+      <td class="cell-name">
+        <div class="item-name">${item.name}${item.sold?'<span style="font-size:.65rem;color:#999;margin-left:.4rem;font-family:\'Noto Sans SC\'">售罄</span>':''}</div>
+        ${item.desc?`<div class="item-desc">${item.desc}</div>`:''}
+      </td>
+      <td class="cell-variants">${renderVariants(item.variants)}</td>
+    </tr>`).join('');
+
+  return `
+    <section class="cat-section" id="${id}">
+      <div class="cat-header">
+        <span class="cat-icon">${cat.icon}</span>
+        <span class="cat-title">${cat.title}</span>
+        <span class="cat-count">${cat.items.length} 款</span>
+      </div>
+      <table class="price-table"><tbody>${rows}</tbody></table>
+    </section>`;
+}
+
+// Build nav + sidebar + content
+const tocNav   = document.getElementById('tocNav');
+const sidebar  = document.getElementById('sidebar');
+const content  = document.getElementById('content');
+
+// Sidebar title already in HTML
+MENU.forEach((cat, i)=>{
+  const id = 'cat-'+cat.title;
+
+  // mobile nav pill
+  const pill = document.createElement('a');
+  pill.className = 'toc-pill' + (i===0?' active':'');
+  pill.href = '#'+id;
+  pill.innerHTML = `<span class="dot"></span>${cat.icon} ${cat.title}`;
+  tocNav.appendChild(pill);
+
+  // desktop sidebar link
+  const link = document.createElement('a');
+  link.className = 'sidebar-link' + (i===0?' active':'');
+  link.href = '#'+id;
+  link.textContent = cat.icon + ' ' + cat.title;
+  sidebar.appendChild(link);
+
+  // section html
+  content.insertAdjacentHTML('beforeend', renderSection(cat, i));
 });
 
-// Active nav highlight on scroll
+// Active highlight on scroll
 const sections = document.querySelectorAll('.cat-section');
-const pills = document.querySelectorAll('.toc-pill, .sidebar-link');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      pills.forEach(p => {
-        p.classList.toggle('active', p.getAttribute('href') === '#' + id);
-      });
+const allPills = document.querySelectorAll('.toc-pill, .sidebar-link');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id = e.target.id;
+      allPills.forEach(p=>p.classList.toggle('active', p.getAttribute('href')==='#'+id));
     }
   });
-}, { rootMargin: '-30% 0px -60% 0px' });
+},{rootMargin:'-25% 0px -65% 0px'});
+sections.forEach(s=>observer.observe(s));
 
-sections.forEach(s => observer.observe(s));
+// Back to top
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll',()=>backTop.classList.toggle('show',scrollY>300));
 </script>
 </body>
 </html>
